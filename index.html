@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Available Books</h2>
+
+<div class="book-grid">
+    {% for book in books %}
+    <div class="card">
+        <h3>{{ book.title }}</h3>
+        <p><strong>Author:</strong> {{ book.author }}</p>
+        <p><strong>Year:</strong> {{ book.year }}</p>
+        <a class="delete-btn" href="{{ url_for('delete_book', id=book.id) }}">Delete</a>
+    </div>
+    {% else %}
+    <p style="color:white;">No books available</p>
+    {% endfor %}
+</div>
+{% endblock %}
